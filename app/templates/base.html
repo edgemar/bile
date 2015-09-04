@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  <link rel="stylesheet" type="text/css" href="static/bilestyle.css">
+  {% if title %}
+  <title>{{ title }} - bile</title>
+  {% else %}
+  <title>Welcome to bile</title>
+  {% endif %}
+  </head>
+  <body>
+    <div>bile: <a href="/index">Home</a></div>
+    <hr>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+        {% for message in messages %}
+            <li>{{ message }} </li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </body>
+</html>
